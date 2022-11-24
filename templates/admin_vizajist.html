@@ -1,0 +1,33 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+        <h1 class="text-center">Визажисты <a class="btn" href="{% url 'add_vizajist' %}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+</svg></a></h1>
+    <div class="row mt-5">
+        <div class="col">
+        <table class="table table-sm table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Фамилия</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Кваливификация</th>
+                    <th scope="col">Фото</th>
+                    <th scope="col">Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for i in vizajist%}
+            <tr>
+                <td>{{i.fam}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.kvalifikaciya}}</td>
+                <td><img src="{{ i.foto.url }}" style="height: 383px; width: 286px;" class="card-img-top" alt="..."></td>
+                <td><a class="btn buttons" href="{% url 'update_vizajist' i.id %}">Редактировать</a> <a class="btn buttons" href="{% url 'delete_vizajist' i.id %}">Удалить</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        </div>
+    </div>
+{% endblock %}

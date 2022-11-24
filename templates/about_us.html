@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+            <div class="col-3 mt-5 pb-3 mb-5" style="border-bottom: 1px solid black">
+                <h4 class="text-center">Наши визажисты</h4>
+            </div>
+    </div>
+</div>
+    <div class="container mb-5">
+        <div class="row gy-5 justify-content-center ms-5">
+            {% for v in vizajist %}
+          <div class="col-md-6 col-lg-4 text-center">
+           <div class="card" style="width: 18rem;  height: 33rem">
+               <img src="{{ v.foto.url }}" style="height: 383px; width: 286px;" class="card-img-top" alt="...">
+               <div class="card-body">
+                    <h5 class="card-title">{{ v.fam }} {{ v.name }}</h5>
+                    <p class="card-text">{{ v.kvalifikaciya.opyt }}</p>
+                </div>
+           </div>
+          </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}

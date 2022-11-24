@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{#    {% for i in makeup %}#}
+{#        <p>{{ i.name }}</p>#}
+{#        {% for j in kvalifikaciya %}#}
+{#            <p>{{ j.opyt }} - {% widthratio  j.procent 1 i.stoimost %}</p>#}
+{#        {% endfor %}#}
+{#    {% endfor %}#}
+{#    {% for i in pricheski %}#}
+{#        <p>{{ i.name }}</p>#}
+{#        {% for j in kvalifikaciya %}#}
+{#            <p>{{ j.opyt }} - {% widthratio  j.procent 1 i.stoimost %}</p>#}
+{#        {% endfor %}#}
+{#    {% endfor %}#}
+    <div class="container mt-5">
+    {% for i in makeup %}
+     {% if forloop.counter|divisibleby:"2" %}
+      <div class="row mb-5 mt-5 justify-content-center">
+        <div class="col-lg-5 col-md-12 me-lg-5">
+          <div class="row justify-content-center">
+            <div class="col-12 mb-5" style="background-color: white; border-radius: 15px; padding-left: 20px;">
+              <h4 style="margin-top: 10px; margin-bottom: 20px;"><b>{{ i.name }}</b></h4>
+              <p>{{ i.opisanie|safe  }}</p>
+                {% for j in kvalifikaciya %}
+                    <p>{{ j.opyt }} - {% widthratio  j.procent 1 i.stoimost %}₽</p>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-12 ms-lg-5">
+          <img src="{{  i.foto.url }}" class="w-75" alt="">
+        </div>
+      </div>
+         {% else %}
+       <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-12 me-lg-5">
+                    <img src="{{  i.foto.url }}" class="w-75" alt="">
+                </div>
+               <div class="col-lg-5 col-md-12">
+          <div class="row justify-content-center">
+            <div class="col-12 mb-5" style="background-color: white; border-radius: 15px; padding-left: 20px;">
+              <h4 style="margin-top: 10px; margin-bottom: 20px;"><b>{{ i.name }}</b></h4>
+              <p>{{ i.opisanie|safe  }}</p>
+                {% for j in kvalifikaciya %}
+                    <p>{{ j.opyt }} - {% widthratio  j.procent 1 i.stoimost %}₽</p>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+        {% endif %}
+     {% endfor %}
+
+    {% for i in pricheski %}
+     {% if forloop.counter|divisibleby:"2" %}
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-12 me-lg-5">
+          <img style="width: 80%" src="{{ i.foto.url }}">
+        </div>
+        <div class="col-lg-5 col-md-12 me-lg-5">
+          <div class="row justify-content-center">
+            <div class="col-12 mb-5" style="background-color: white; border-radius: 15px; padding-left: 20px;">
+              <h4 style="margin-top: 10px; margin-bottom: 20px;"><b>{{ i.name }}</b></h4>
+              <p>{{ i.opisanie|safe  }}</p>
+                {% for j in kvalifikaciya %}
+                    <p>{{ j.opyt }} - {% widthratio  j.procent 1 i.stoimost %}₽</p>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+         {% else %}
+       <div class="row mb-5 mt-5 justify-content-center">
+               <div class="col-lg-5 col-md-12">
+          <div class="row justify-content-center">
+            <div class="col-12 mb-5" style="background-color: white; border-radius: 15px; padding-left: 20px;">
+              <h4 style="margin-top: 10px; margin-bottom: 20px;"><b>{{ i.name }}</b></h4>
+              <p>{{ i.opisanie|safe  }}</p>
+                {% for j in kvalifikaciya %}
+                    <p>{{ j.opyt }} - {% widthratio  j.procent 1 i.stoimost %}₽</p>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+           <div class="col-lg-5 col-md-12 ms-lg-5">
+                <img src="{{ i.foto.url }}" style="width: 80%">
+            </div>
+      </div>
+        {% endif %}
+     {% endfor %}
+    </div>
+{% endblock %}

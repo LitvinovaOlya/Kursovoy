@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+            <div class="col-3 mt-5 pb-3 mb-5" style="border-bottom: 1px solid black">
+                <h4 class="text-center">Как нас найти</h4>
+            </div>
+    </div>
+</div>
+    <section class="map" style="height: 611px">
+        <div class="container mb-5">
+            <div class="row justify-content-center">
+                    <div class="col-5 me-5 align-self-center" style="background-color: white; border-radius: 15px; padding-left: 20px; vertical-align: middle; height: 276px;">
+                    <h4 style="margin-top: 10px; margin-bottom: 20px;"><b>Наши контакты</b></h4>
+                    <p>Телефон для связи с нами: + 7 964 657 50 02</p>
+                    <p>г. Иркутск ул. Академическая, дом 24</p>
+                    <p>Часы работы: 10:00 - 19:00</p>
+                    <p>Мы в соц. сетях:</p>
+                    <a href="https://instagrama.ru"><img src="{% static 'images/icons8-инстаграм-в-круге-60.png' %}" width="39x"></a>
+                    <a href="https://vk.com"><img src="{% static 'images/icons8-vk-в-круге-50.png' %}" width="37x"></a>
+                    <a href="https://telegram.org/apps"><img src="{% static 'images/icons8-телеграм-50.png' %}" width="35x"></a>
+                    
+                </div>
+                <div class="col-5 me-3">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.480001216369!2d104.29062451611182!3d52.23466457976126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5da83ce9398ead49%3A0x5d6e5bfd4ea37797!2z0YPQuy4g0JDQutCw0LTQtdC80LjRh9C10YHQutCw0Y8sIDI0LCDQmNGA0LrRg9GC0YHQuiwg0JjRgNC60YPRgtGB0LrQsNGPINC-0LHQuy4sIDY2NDAxNw!5e0!3m2!1sru!2sru!4v1668862430306!5m2!1sru!2sru" width="500" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
