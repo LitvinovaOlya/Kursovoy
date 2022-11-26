@@ -1,5 +1,6 @@
 from django import forms
 from content.models import *
+from datetime import datetime
 
 
 class DateInput(forms.DateInput):
@@ -18,7 +19,8 @@ class ZayavkiForm(forms.ModelForm):
             'pricheski': forms.Select(attrs={'class': 'form-select'}),
             'makeup': forms.Select(attrs={'class': 'form-select'}),
             'vizajist': forms.Select(attrs={'class': 'form-select'}),
-            'data_vypoln': DateInput(attrs={'class': 'form-control', 'placeholder': 'Дата и время'})
+            'data_vypoln': DateInput(attrs={'class': 'form-control', 'placeholder': 'Дата и время',
+                                            "min": datetime.now().replace(microsecond=0, second=0, ).isoformat()})
         }
 
 
@@ -56,6 +58,7 @@ class PricheskiForm(forms.ModelForm):
             'stoimost': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Стоимость'}),
             'foto': forms.FileInput(attrs={'class': 'form-control'})
         }
+
 
 class KvalifikaciyaForm(forms.ModelForm):
     class Meta:

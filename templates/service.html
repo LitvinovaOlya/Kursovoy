@@ -24,7 +24,8 @@
               <h4 style="margin-top: 10px; margin-bottom: 20px;"><b>{{ i.name }}</b></h4>
               <p>{{ i.opisanie|safe  }}</p>
                 {% for j in kvalifikaciya %}
-                    <p>{{ j.opyt }} - {% widthratio  j.procent 1 i.stoimost %}₽</p>
+                    <p>{{ j.opyt }} - {{  j.procent|add:i.stoimost }}₽</p>
+
                 {% endfor %}
             </div>
           </div>
@@ -44,7 +45,7 @@
               <h4 style="margin-top: 10px; margin-bottom: 20px;"><b>{{ i.name }}</b></h4>
               <p>{{ i.opisanie|safe  }}</p>
                 {% for j in kvalifikaciya %}
-                    <p>{{ j.opyt }} - {% widthratio  j.procent 1 i.stoimost %}₽</p>
+                    <p>{{ j.opyt }} - {{  j.procent|add:i.stoimost }}₽</p>
                 {% endfor %}
             </div>
           </div>
@@ -65,7 +66,7 @@
               <h4 style="margin-top: 10px; margin-bottom: 20px;"><b>{{ i.name }}</b></h4>
               <p>{{ i.opisanie|safe  }}</p>
                 {% for j in kvalifikaciya %}
-                    <p>{{ j.opyt }} - {% widthratio  j.procent 1 i.stoimost %}₽</p>
+                    <p>{{ j.opyt }} - {{  j.procent|add:i.stoimost }}₽</p>
                 {% endfor %}
             </div>
           </div>
@@ -79,7 +80,7 @@
               <h4 style="margin-top: 10px; margin-bottom: 20px;"><b>{{ i.name }}</b></h4>
               <p>{{ i.opisanie|safe  }}</p>
                 {% for j in kvalifikaciya %}
-                    <p>{{ j.opyt }} - {% widthratio  j.procent 1 i.stoimost %}₽</p>
+                    <p>{{ j.opyt }} - {{  j.procent|add:i.stoimost }}₽</p>
                 {% endfor %}
             </div>
           </div>
