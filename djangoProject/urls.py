@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="home"),
     path('service/', service, name="service"),
-    path('about_us/', about_us, name="about_as"),
+    path('about_us/', about_us, name="about_us"),
     path('contact/', contact, name="contact"),
     path('delete_zayavka/<id_zayavka>', delete_zayavka, name='delete_zayavka'),
     path('update_zayavka/<id_zayavka>', update_zayavka, name='update_zayavka'),

@@ -32,7 +32,7 @@ def index(request):
             return render(request, 'spasibo.html', {'form': form, "stoimost": stoimost, "name": name})
     else:
         form = ZayavkiForm()
-    return render(request, 'index.html', {'form': form, 'title': 'О нас'})
+    return render(request, 'index.html', {'form': form, 'title': 'Главная'})
 
 
 def service(request):
