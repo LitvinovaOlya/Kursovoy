@@ -13,11 +13,20 @@ def index(request):
         vizajist_id = request.POST['vizajist']
         pricheska_id = request.POST['pricheski']
         makeup_id = request.POST['makeup']
-        pricheska_stoimost = Pricheski.objects.get(pk=pricheska_id).stoimost
-        makeup_stoimost = Pricheski.objects.get(pk=makeup_id).stoimost
         vizajist_kvalification = Vizajisti.objects.get(pk=vizajist_id).kvalifikaciya_id
         procent = Kvalifikaciya.objects.get(pk=vizajist_kvalification).procent
-        stoimost = pricheska_stoimost * procent + makeup_stoimost * procent
+        if pricheska_id:
+            pricheska_stoimost = Pricheski.objects.get(pk=pricheska_id).stoimost
+            stoimost = pricheska_stoimost + procent
+        elif makeup_id:
+            makeup_stoimost = Pricheski.objects.get(pk=makeup_id).stoimost
+            stoimost = makeup_stoimost + procent
+        elif pricheska_id and makeup_id:
+            pricheska_stoimost = Pricheski.objects.get(pk=pricheska_id).stoimost
+            makeup_stoimost = Pricheski.objects.get(pk=makeup_id).stoimost
+            stoimost = pricheska_stoimost + procent + makeup_stoimost + procent
+        else:
+            return render(request, 'error.html', {'form': form})
         if form.is_valid():
             form.save()
             return render(request, 'spasibo.html', {'form': form, "stoimost": stoimost, "name": name})

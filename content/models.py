@@ -1,5 +1,5 @@
 from django.db import models
-
+from djangoProject.settings import DATETIME_INPUT_FORMATS
 
 class Makeup(models.Model):
     name = models.CharField(max_length=20, verbose_name="Название")
@@ -9,6 +9,7 @@ class Makeup(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Pricheski(models.Model):
     name = models.CharField(max_length=20, verbose_name="Название")
@@ -43,8 +44,8 @@ class Zayavki(models.Model):
     telephon = models.CharField(max_length=18, verbose_name='Телефон')
     data_sozd = models.DateTimeField(auto_now=True)
     data_vypoln = models.DateTimeField(verbose_name="Дата и время")
-    pricheski = models.ForeignKey(Pricheski, on_delete=models.PROTECT, verbose_name="Причёска")
-    makeup = models.ForeignKey(Makeup, on_delete=models.PROTECT, verbose_name="Макияж")
+    pricheski = models.ForeignKey(Pricheski, on_delete=models.PROTECT, blank=True, null=True, verbose_name="Причёска")
+    makeup = models.ForeignKey(Makeup, on_delete=models.PROTECT, blank=True, null=True, verbose_name="Макияж")
     vizajist = models.ForeignKey(Vizajisti, on_delete=models.PROTECT, verbose_name="Визажист")
 
     def __str__(self):

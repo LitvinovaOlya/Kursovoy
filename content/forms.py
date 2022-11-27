@@ -1,11 +1,7 @@
 from django import forms
 from content.models import *
 from datetime import datetime
-
-
-class DateInput(forms.DateInput):
-    input_type = "datetime-local"
-
+from djangoProject.settings import DATETIME_INPUT_FORMATS
 
 class ZayavkiForm(forms.ModelForm):
     class Meta:
@@ -19,8 +15,7 @@ class ZayavkiForm(forms.ModelForm):
             'pricheski': forms.Select(attrs={'class': 'form-select'}),
             'makeup': forms.Select(attrs={'class': 'form-select'}),
             'vizajist': forms.Select(attrs={'class': 'form-select'}),
-            'data_vypoln': DateInput(attrs={'class': 'form-control', 'placeholder': 'Дата и время',
-                                            "min": datetime.now().replace(microsecond=0, second=0, ).isoformat()})
+            'data_vypoln': forms.DateTimeInput(attrs={'class': 'form-control', 'placeholder': 'Дата и время'})
         }
 
 

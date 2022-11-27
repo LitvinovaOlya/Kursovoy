@@ -62,9 +62,21 @@
                     <div class="col-sm-10">
                           <label for="id_vizajist">Выберите дату</label>
                           {{form.data_vypoln}}
+                        <script>
+                              jQuery.datetimepicker.setLocale('ru');
+                            $(function () {
+                                $("#id_data_vypoln").datetimepicker({
+                                    minDate:'0',
+                                    allowTimes:['10:00', '11:00','12:00', '13:00', '15:00', '16:00', '17:00', '18:00', '19:00']
+                                });
+
+                            });
+                        </script>
                     </div>
-                        <p>{{ form.z.kvalifikaciya.procent }}</p>
                   </div>
+                    {% if error %}
+                        <p>{{ error }}<p>
+                    {% endif %}
                     </div>
                     </div>
                     <div class="modal-footer">
