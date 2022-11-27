@@ -25,7 +25,8 @@
                 <td>{{i.makeup}}</td>
                 <td>{{i.vizajist.name}} {{ i.vizajist.fam }}</td>
                 <td>{{i.data_vypoln|date:'d.m.Y H:i'}}</td>
-                <td><a class="btn buttons" href="{% url 'update_zayavka' i.id %}">Редактировать</a> <a class="btn buttons" href="{% url 'delete_zayavka' i.id %}">Удалить</a></td>
+                <td><a class="btn buttons" href="{% url 'update_zayavka' i.id %}">Редактировать</a>
+                    <a class="btn buttons" href="{% url 'delete_zayavka' i.id %}">Удалить</a></td>
 
             </tr>
             {% endfor %}

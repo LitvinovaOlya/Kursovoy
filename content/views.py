@@ -15,16 +15,16 @@ def index(request):
         makeup_id = request.POST['makeup']
         vizajist_kvalification = Vizajisti.objects.get(pk=vizajist_id).kvalifikaciya_id
         procent = Kvalifikaciya.objects.get(pk=vizajist_kvalification).procent
-        if pricheska_id:
+        if pricheska_id and makeup_id:
+            pricheska_stoimost = Pricheski.objects.get(pk=pricheska_id).stoimost
+            makeup_stoimost = Makeup.objects.get(pk=makeup_id).stoimost
+            stoimost = pricheska_stoimost + procent + makeup_stoimost + procent
+        elif makeup_id:
+            makeup_stoimost = Makeup.objects.get(pk=makeup_id).stoimost
+            stoimost = makeup_stoimost + procent
+        elif pricheska_id:
             pricheska_stoimost = Pricheski.objects.get(pk=pricheska_id).stoimost
             stoimost = pricheska_stoimost + procent
-        elif makeup_id:
-            makeup_stoimost = Pricheski.objects.get(pk=makeup_id).stoimost
-            stoimost = makeup_stoimost + procent
-        elif pricheska_id and makeup_id:
-            pricheska_stoimost = Pricheski.objects.get(pk=pricheska_id).stoimost
-            makeup_stoimost = Pricheski.objects.get(pk=makeup_id).stoimost
-            stoimost = pricheska_stoimost + procent + makeup_stoimost + procent
         else:
             return render(request, 'error.html', {'form': form})
         if form.is_valid():
