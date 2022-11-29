@@ -2,18 +2,6 @@
 {% load static %}
 {% block content %}
 
-{#    {% for i in makeup %}#}
-{#        <p>{{ i.name }}</p>#}
-{#        {% for j in kvalifikaciya %}#}
-{#            <p>{{ j.opyt }} - {% widthratio  j.procent 1 i.stoimost %}</p>#}
-{#        {% endfor %}#}
-{#    {% endfor %}#}
-{#    {% for i in pricheski %}#}
-{#        <p>{{ i.name }}</p>#}
-{#        {% for j in kvalifikaciya %}#}
-{#            <p>{{ j.opyt }} - {% widthratio  j.procent 1 i.stoimost %}</p>#}
-{#        {% endfor %}#}
-{#    {% endfor %}#}
     <div class="container mt-5">
     {% for i in makeup %}
      {% if forloop.counter|divisibleby:"2" %}
@@ -31,13 +19,13 @@
           </div>
         </div>
         <div class="col-lg-5 col-md-12 ms-lg-5">
-          <img src="{{  i.foto.url }}" class="w-75" alt="">
+          <img src="{{  i.foto.url }}" class="w-75" alt="" style="border-radius: 20px;">
         </div>
       </div>
          {% else %}
        <div class="row justify-content-center">
                 <div class="col-lg-5 col-md-12 me-lg-5">
-                    <img src="{{  i.foto.url }}" class="w-75" alt="">
+                    <img src="{{  i.foto.url }}" class="w-75" alt="" style="border-radius: 20px;">
                 </div>
                <div class="col-lg-5 col-md-12">
           <div class="row justify-content-center">
@@ -58,7 +46,7 @@
      {% if forloop.counter|divisibleby:"2" %}
       <div class="row justify-content-center">
         <div class="col-lg-5 col-md-12 me-lg-5">
-          <img style="width: 80%" src="{{ i.foto.url }}">
+          <img style="width: 80%; border-radius: 20px;" src="{{ i.foto.url }} ">
         </div>
         <div class="col-lg-5 col-md-12 me-lg-5">
           <div class="row justify-content-center">
@@ -86,7 +74,7 @@
           </div>
         </div>
            <div class="col-lg-5 col-md-12 ms-lg-5">
-                <img src="{{ i.foto.url }}" style="width: 80%">
+                <img src="{{ i.foto.url }}" style="width: 80%; border-radius: 20px;">
             </div>
       </div>
         {% endif %}

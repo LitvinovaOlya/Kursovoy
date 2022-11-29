@@ -1,6 +1,7 @@
 from django.db import models
 from djangoProject.settings import DATETIME_INPUT_FORMATS
 
+# Таблица Макияжи
 class Makeup(models.Model):
     name = models.CharField(max_length=20, verbose_name="Название")
     opisanie = models.TextField(verbose_name="Описание")
@@ -10,7 +11,7 @@ class Makeup(models.Model):
     def __str__(self):
         return self.name
 
-
+# Таблица Причёски
 class Pricheski(models.Model):
     name = models.CharField(max_length=20, verbose_name="Название")
     opisanie = models.TextField(verbose_name="Описание")
@@ -20,7 +21,7 @@ class Pricheski(models.Model):
     def __str__(self):
         return self.name
 
-
+# Таблица Квалификация
 class Kvalifikaciya(models.Model):
     opyt = models.CharField(max_length=20, verbose_name="Опыт")
     procent = models.FloatField(verbose_name="Процент")
@@ -28,7 +29,7 @@ class Kvalifikaciya(models.Model):
     def __str__(self):
         return self.opyt
 
-
+# Таблица Визажисты
 class Vizajisti(models.Model):
     fam = models.CharField(max_length=45, verbose_name="Фамилия")
     name = models.CharField(max_length=20, verbose_name="Имя")
@@ -36,9 +37,9 @@ class Vizajisti(models.Model):
     foto = models.ImageField(upload_to='vizajisti/')
 
     def __str__(self):
-        return f"{self.fam}  {self.name}"
+        return f"{self.fam}  {self.name} ({self.kvalifikaciya.opyt})"
 
-
+# Таблица Заявки
 class Zayavki(models.Model):
     name_klient = models.CharField(max_length=20, verbose_name='Имя')
     telephon = models.CharField(max_length=18, verbose_name='Телефон')
