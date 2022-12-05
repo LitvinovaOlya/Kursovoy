@@ -5,8 +5,8 @@ from djangoProject.settings import DATETIME_INPUT_FORMATS
 
 class ZayavkiForm(forms.ModelForm):
     class Meta:
-        model = Zayavki
-        fields = '__all__'
+        model = Zayavki # Связь с моделью (таблицей)
+        fields = '__all__' # Все поля
         widgets = {
             'name_klient': forms.TextInput(
                 attrs={'class': 'form-control', 'placeholder': 'Имя'}),
