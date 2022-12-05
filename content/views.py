@@ -1,11 +1,7 @@
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from content.forms import *
-from django.db.models import F
 
-
-# Create your views here.
 def index(request):
     if request.method == 'POST':
         form = ZayavkiForm(request.POST)
@@ -34,21 +30,15 @@ def index(request):
         form = ZayavkiForm()
     return render(request, 'index.html', {'form': form, 'title': 'Главная'})
 
-
 def service(request):
     form = ZayavkiForm()
     kvalifikaciya = Kvalifikaciya.objects.all()
     pricheski = Pricheski.objects.all()
     makeup = Makeup.objects.all()
-    stoimost = []
-    for i in makeup:
-        for j in kvalifikaciya:
-            stoimost.append(j.procent * i.stoimost)
 
     return render(request, 'service.html',
                   {'title': 'Услуги', "form": form, "kvalifikaciya": kvalifikaciya, "pricheski": pricheski,
-                   "makeup": makeup, "stoimost": stoimost})
-
+                   "makeup": makeup})
 
 def about_us(request):
     form = ZayavkiForm()
